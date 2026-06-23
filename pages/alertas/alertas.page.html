@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Meus Alertas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Consulta</h2>
+
+  <ion-list *ngIf="alertas.length > 0">
+    <ion-item-sliding *ngFor="let a of alertas">
+      <ion-item>
+        <ion-label>
+          <h2>{{ a.nome }}</h2>
+
+          <p>Quantidade: {{ a.quantidade }}</p>
+
+          <p>Valor atual: {{ a.valorAtual | currency:'BRL' }}</p>
+
+          <p>Compra automática: {{ a.valor | currency:'BRL' }}</p>
+        </ion-label>
+
+        <ion-badge slot="end" [color]="a.ativo ? 'success' : 'medium'">
+          {{ a.ativo ? 'Ativo' : 'Inativo' }}
+        </ion-badge>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="warning" (click)="editar(a.id)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="danger" (click)="excluir(a.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <div *ngIf="alertas.length === 0" class="empty-msg">
+    <p>Nenhum alerta cadastrado.</p>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="irAdicionar()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

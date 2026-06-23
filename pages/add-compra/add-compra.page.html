@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/compras"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Registro</h2>
+
+  <div *ngIf="carregando" style="text-align:center; padding: 20px;">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando ações...</p>
+  </div>
+
+  <div *ngIf="!carregando">
+    <ion-item>
+      <ion-label position="floating">Ação</ion-label>
+      <ion-select
+        [(ngModel)]="compra.acaoId"
+        placeholder="Selecione uma opção"
+        (ionChange)="onAcaoChange()">
+        <ion-select-option *ngFor="let a of acoes" [value]="a.id">
+          {{ a.nome }} — R$ {{ a.valorAtual ?? a.valor | number:'1.2-2' }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input
+        [(ngModel)]="compra.quantidade"
+        type="number"
+        min="1"
+        (ionInput)="calcularTotal()">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Valor Total</ion-label>
+      <ion-input [value]="valorTotal | currency:'BRL'" readonly></ion-input>
+    </ion-item>
+
+    <div class="ion-padding-top">
+      <ion-button expand="block" color="primary" (click)="confirmar()">CONFIRMAR</ion-button>
+    </div>
+  </div>
+</ion-content>

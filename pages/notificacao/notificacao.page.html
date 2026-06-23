@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Alertas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-notificacao">
+    <h2 class="acao-descricao">{{ alerta.nome }}</h2>
+    <h1 class="valor-alerta">R$ {{ alerta.valor | number:'1.2-2' }}</h1>
+    <ion-button color="danger" size="large" (click)="desligar()">DESLIGAR</ion-button>
+  </div>
+</ion-content>

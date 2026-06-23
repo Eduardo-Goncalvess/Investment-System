@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Minha Carteira</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Consulta</h2>
+
+  <ion-list *ngIf="carteira.length > 0">
+    <ion-item *ngFor="let item of carteira">
+      <ion-label>
+        <h3>{{ item.acaoNome || item.nome }}</h3>
+      </ion-label>
+      <ion-badge slot="end" color="primary">{{ item.quantidade }}</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="carteira.length === 0" class="empty-msg">
+    <p>Nenhuma ação na carteira.</p>
+  </div>
+</ion-content>

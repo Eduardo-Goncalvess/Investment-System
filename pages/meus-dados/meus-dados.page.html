@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Meus Dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Cadastro</h2>
+
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input [(ngModel)]="nome" type="text" readonly></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Login</ion-label>
+    <ion-input [(ngModel)]="login" type="text" readonly></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nova Senha</ion-label>
+    <ion-input [(ngModel)]="novaSenha" type="password"></ion-input>
+  </ion-item>
+
+  <div class="ion-padding-top">
+    <ion-button expand="block" color="primary" (click)="alterarSenha()">ALTERAR SENHA</ion-button>
+  </div>
+</ion-content>

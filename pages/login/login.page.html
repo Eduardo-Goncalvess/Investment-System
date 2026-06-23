@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>OdinInvest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding login-content">
+  <div class="logo-area">
+    <h1 class="app-title">OdinInvest</h1>
+    <p class="app-subtitle">Sua plataforma de investimentos</p>
+  </div>
+
+  <ion-item>
+    <ion-label position="floating">Login</ion-label>
+    <ion-input [(ngModel)]="login" type="text" placeholder="Digite seu login"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Senha</ion-label>
+    <ion-input [(ngModel)]="senha" type="password" placeholder="Digite sua senha"></ion-input>
+  </ion-item>
+
+  <div class="btn-area">
+    <ion-button expand="block" color="primary" (click)="entrar()">ENTRAR</ion-button>
+    <ion-button expand="block" fill="outline" color="medium" (click)="irCadastro()">CADASTRAR</ion-button>
+  </div>
+</ion-content>

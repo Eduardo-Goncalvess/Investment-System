@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>OdinInvest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="menu-content">
+  <div class="menu-logo">
+    <h2>Bem-vindo!</h2>
+    <p>O que deseja fazer hoje?</p>
+  </div>
+
+  <ion-list lines="none" class="menu-list">
+    <ion-item button (click)="irPara('/carteira')" class="menu-item">
+      <ion-icon name="wallet-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Minha Carteira</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="irPara('/compras')" class="menu-item">
+      <ion-icon name="cart-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Minhas Compras</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="irPara('/alertas')" class="menu-item">
+      <ion-icon name="notifications-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Meus Alertas</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="irPara('/meus-dados')" class="menu-item">
+      <ion-icon name="person-outline" slot="start" color="primary"></ion-icon>
+      <ion-label>Meus Dados</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="sair()" class="menu-item sair">
+      <ion-icon name="log-out-outline" slot="start" color="danger"></ion-icon>
+      <ion-label color="danger">Sair</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

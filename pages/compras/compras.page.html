@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Minhas Compras</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Consulta</h2>
+
+  <ion-list *ngIf="compras.length > 0">
+  <ion-item *ngFor="let c of compras">
+    <ion-label>
+<h2>{{ c.nome }}</h2>
+
+      <p>
+        Quantidade: {{ c.quantidade }}
+      </p>
+
+      <p>
+        Data: {{ c.data | date:'dd/MM/yyyy HH:mm' }}
+      </p>
+
+      <p>
+        Valor total:
+        {{ c.valor | currency:'BRL' }}
+      </p>
+    </ion-label>
+  </ion-item>
+  </ion-list>
+
+  <div *ngIf="compras.length === 0" class="empty-msg">
+    <p>Nenhuma compra realizada.</p>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="irAdicionarCompra()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
